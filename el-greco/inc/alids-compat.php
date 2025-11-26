@@ -258,6 +258,27 @@ if ( ! function_exists( 'ads_get_shipping_titles' ) ) {
 }
 
 // -----------------------------------------------------------------------------
+// Minimal namespace stub for customization helpers
+// -----------------------------------------------------------------------------
+if ( ! class_exists( '\\ads\\customization\\czOptions' ) ) {
+    /**
+     * Basic stand-in for the AliDropship customization helper.
+     *
+     * The real implementation reads template snippets from the plugin. When the
+     * plugin is unavailable we still need the class to exist so that default
+     * settings can be loaded without fatal errors. Returning an empty string is
+     * sufficient for the theme to continue rendering.
+     */
+    class ads_customization_czOptions_stub {
+        public static function getTemplateField( $name ) { // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+            return '';
+        }
+    }
+
+    class_alias( 'ads_customization_czOptions_stub', '\\ads\\customization\\czOptions' );
+}
+
+// -----------------------------------------------------------------------------
 // Shortcodes and AJAX handlers used by bundled templates
 // -----------------------------------------------------------------------------
 if ( ! shortcode_exists( 'ads_account' ) ) {
