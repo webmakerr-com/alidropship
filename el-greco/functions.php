@@ -672,6 +672,81 @@ function image_host_remove() {
 
 add_action( 'after_switch_theme', 'image_host_remove',40  );
 
+/**
+ * Ensure essential theme pages exist after activation.
+ */
+function adstm_import_default_pages() {
+    if ( get_option( 'adstm_default_pages_created' ) ) {
+        return;
+    }
+
+    $pages = [
+        [
+            'title'    => 'Home',
+            'slug'     => 'home',
+            'template' => 'front-page.php',
+        ],
+        [
+            'title'    => 'About Us',
+            'slug'     => 'about-us',
+            'template' => 'page-about-us.php',
+        ],
+        [
+            'title'    => 'Contact Us',
+            'slug'     => 'contact-us',
+            'template' => 'page-contact-us.php',
+        ],
+        [
+            'title'    => 'Track Your Order',
+            'slug'     => 'track-your-order',
+            'template' => 'page-track-your-order.php',
+        ],
+        [
+            'title'    => 'Thank You',
+            'slug'     => 'thank-you',
+            'template' => 'page-thank-you-contact.php',
+        ],
+        [
+            'title'    => 'Order Confirmation',
+            'slug'     => 'order-confirmation',
+            'template' => 'page-confirmation.php',
+        ],
+        [
+            'title'    => 'Customers Gallery',
+            'slug'     => 'customers-gallery',
+            'template' => 'page-customersgallery.php',
+        ],
+    ];
+
+    foreach ( $pages as $page ) {
+        $existing_page = get_page_by_path( $page['slug'] );
+
+        if ( ! $existing_page ) {
+            $page_id = wp_insert_post(
+                [
+                    'post_title'   => $page['title'],
+                    'post_name'    => $page['slug'],
+                    'post_status'  => 'publish',
+                    'post_type'    => 'page',
+                    'post_content' => '',
+                ]
+            );
+
+            if ( ! is_wp_error( $page_id ) && ! empty( $page['template'] ) ) {
+                update_post_meta( $page_id, '_wp_page_template', $page['template'] );
+            }
+
+            if ( 'home' === $page['slug'] && ! get_option( 'page_on_front' ) ) {
+                update_option( 'show_on_front', 'page' );
+                update_option( 'page_on_front', $page_id );
+            }
+        }
+    }
+
+    update_option( 'adstm_default_pages_created', true );
+}
+add_action( 'after_switch_theme', 'adstm_import_default_pages' );
+
 
 function do_webp_to_png() {
     $media_query = new WP_Query(
