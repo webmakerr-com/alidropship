@@ -302,3 +302,41 @@ if ( ! class_exists( '\\ads\\adsProduct' ) ) {
     class_alias( 'adsProductStub', '\\ads\\adsProduct' );
 }
 
+// -----------------------------------------------------------------------------
+// Minimal namespace stub for feedback handling
+// -----------------------------------------------------------------------------
+if ( ! class_exists( 'adsFeedbackStub' ) ) {
+    class adsFeedbackStub {
+        /** @var array */
+        public $comments = [];
+
+        /** @var int */
+        protected $page = 1;
+
+        /** @var int */
+        protected $per_page = 10;
+
+        public function __construct( $post_id = 0, $page = 1, $per_page = 10 ) {
+            $post_id        = is_numeric( $post_id ) ? (int) $post_id : 0;
+            $this->page     = max( 1, (int) $page );
+            $this->per_page = max( 1, (int) $per_page );
+
+            $this->comments = get_comments( [
+                'post_id' => $post_id,
+                'status'  => 'approve',
+                'offset'  => ( $this->page - 1 ) * $this->per_page,
+                'number'  => $this->per_page,
+            ] );
+        }
+
+        public function getPage() {
+            return $this->page;
+        }
+    }
+}
+
+if ( ! class_exists( '\\ads\\adsFeedback' ) ) {
+    // phpcs:ignore PSR1.Classes.ClassDeclaration.MissingNamespace
+    class_alias( 'adsFeedbackStub', '\\ads\\adsFeedback' );
+}
+
