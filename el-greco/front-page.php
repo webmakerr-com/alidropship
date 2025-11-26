@@ -10,14 +10,20 @@
         $src_swiper = 'src';
     }
 
+    $slider_items = cz( 'slider_home' );
+    if ( empty( $slider_items ) || ! is_array( $slider_items ) ) {
+        $defaults     = function_exists( 'adstm_default_settings' ) ? adstm_default_settings() : [];
+        $slider_items = isset( $defaults['slider_home'] ) ? $defaults['slider_home'] : [];
+    }
+
     $tp_home_slider_full = cz('tp_home_slider_full');
 
 
 ?>
 <div class="main">
-    <?php if(cz('tp_home_slider_enable')){ ?>
+    <?php if(cz('tp_home_slider_enable') && $slider_items){ ?>
         <style>
-            <?php foreach( cz( 'slider_home' ) as $key => $item ) { ?>
+            <?php foreach( $slider_items as $key => $item ) { ?>
             :root{
                 --text-color-key<?php echo $key; ?>:<?php echo $item[ 'text_color' ]; ?>;
             <?php
@@ -71,7 +77,7 @@
                 }
 
                 $btmVideo_one_slider = true;
-                foreach( cz( 'slider_home' ) as $key => $item ) {
+                foreach( $slider_items as $key => $item ) {
                     $emptyTextClass   = ! $item[ 'text' ] ? 'emptyText' : '';
                     $shop_now_enabled = isset( $item[ 'shop_now_enabled' ] ) ? $item[ 'shop_now_enabled' ] : true;
                     if ( ! $item[ 'img' ] )
