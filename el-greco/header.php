@@ -24,7 +24,7 @@
         <?php }
     }
 
-    \ads\adsTmpl::meta();
+    adsTmpl::box_meta();
     wp_head();
     ?>
     <style><?php echo cz('tp_style') ?></style>
