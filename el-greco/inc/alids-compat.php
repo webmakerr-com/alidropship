@@ -271,7 +271,24 @@ if ( ! class_exists( '\\ads\\customization\\czOptions' ) ) {
      */
     class ads_customization_czOptions_stub {
         public static function getTemplateField( $name ) { // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
-            return '';
+            switch ( $name ) {
+                case 'tp_subscribe':
+                    return '<section class="subscription-banner">'
+                        . '<div class="container">'
+                        . '<div class="subscribe-inner">'
+                        . '<h3>Be the first to know</h3>'
+                        . '<p>Discover new arrivals, exclusive offers, and much more</p>'
+                        . '<form class="subscribe-form" action="#" method="post">'
+                        . '<label class="sr-only" for="subscribe-email">Please enter your email</label>'
+                        . '<input id="subscribe-email" type="email" name="email" placeholder="Please enter your email" required />'
+                        . '<button type="submit" class="btn btn-prime">Subscribe</button>'
+                        . '</form>'
+                        . '</div>'
+                        . '</div>'
+                        . '</section>';
+                default:
+                    return '';
+            }
         }
     }
 
