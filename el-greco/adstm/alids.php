@@ -346,7 +346,7 @@ class adsProductTM extends \ads\adsProduct {
 		return $this->product;
 	}
 
-	private function renderShipping( $shipping ) {
+        public function renderShipping( $shipping ) {
 
         if(empty($shipping)){
             return '';
