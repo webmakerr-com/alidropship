@@ -43,10 +43,10 @@ if(!isset($_REQUEST['nolive'])){
 
     $options = live_cstm_get_defaults();
 
-    if(defined( 'ADS_PATH' )){
-        include ADS_PATH.'includes/live/settings_template.php';
-    }elseif(defined( 'SLV_PATH' )){
-        include SLV_PATH.'includes/live/settings_template.php';
+    if ( defined( 'ADS_PATH' ) && file_exists( ADS_PATH . 'includes/live/settings_template.php' ) ) {
+        include ADS_PATH . 'includes/live/settings_template.php';
+    } elseif ( defined( 'SLV_PATH' ) && file_exists( SLV_PATH . 'includes/live/settings_template.php' ) ) {
+        include SLV_PATH . 'includes/live/settings_template.php';
     }
 
 

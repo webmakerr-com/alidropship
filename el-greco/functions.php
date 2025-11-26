@@ -6,6 +6,9 @@ if( function_exists('init_cz') ) {
     init_cz();
 }
 
+// Provide fallback definitions when the AliDropship plugin is not available.
+include_once __DIR__ . '/inc/alids-compat.php';
+
 add_action( 'template_redirect', function(){
 
     if ( defined( 'ADS_ERROR' ) || defined( 'SLV_ERROR' )  ) {
