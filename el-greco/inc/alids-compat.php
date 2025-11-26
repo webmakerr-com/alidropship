@@ -9,6 +9,27 @@
  */
 
 // -----------------------------------------------------------------------------
+// Theme assets
+// -----------------------------------------------------------------------------
+// These are normally provided by the plugin; when it is absent we point them at
+// the theme assets so that images (logo, banners, etc.) still resolve.
+if ( ! defined( 'TEMPLATE_URL' ) ) {
+    define( 'TEMPLATE_URL', get_template_directory_uri() );
+}
+
+if ( ! defined( 'IMG_DIR' ) ) {
+    define( 'IMG_DIR', trailingslashit( TEMPLATE_URL ) . 'images/' );
+}
+
+if ( ! defined( 'ADSTM_HOME' ) ) {
+    define( 'ADSTM_HOME', home_url() );
+}
+
+if ( ! defined( 'ADSTM_T_DOMAIN' ) ) {
+    define( 'ADSTM_T_DOMAIN', 'elgreco' );
+}
+
+// -----------------------------------------------------------------------------
 // Constants
 // -----------------------------------------------------------------------------
 if ( ! defined( 'ADS_URL' ) ) {
@@ -29,6 +50,53 @@ if ( ! defined( 'ADS_MAIN_CUR' ) ) {
 
 if ( ! defined( 'ADS_ERROR' ) ) {
     define( 'ADS_ERROR', false );
+}
+
+// -----------------------------------------------------------------------------
+// Option helpers (cz/_cz)
+// -----------------------------------------------------------------------------
+if ( ! function_exists( 'adstm_default_settings' ) ) {
+    /**
+     * Load default theme settings shipped with the template.
+     *
+     * @return array
+     */
+    function adstm_default_settings() {
+        static $defaults = null;
+
+        if ( null === $defaults ) {
+            $defaults = include trailingslashit( get_template_directory() ) . 'adstm/customization/defaults.php';
+        }
+
+        return $defaults;
+    }
+}
+
+if ( ! function_exists( 'cz' ) ) {
+    /**
+     * Retrieve a theme option value with a sensible fallback when the plugin is
+     * not present.
+     *
+     * @param string $name Option name.
+     *
+     * @return mixed
+     */
+    function cz( $name ) {
+        $defaults = adstm_default_settings();
+
+        return get_theme_mod( $name, isset( $defaults[ $name ] ) ? $defaults[ $name ] : '' );
+    }
+}
+
+if ( ! function_exists( '_cz' ) ) {
+    /**
+     * Echo helper for cz().
+     *
+     * @param string $name Option name.
+     */
+    function _cz( $name ) {
+        echo cz( $name );
+    }
 }
 
 // -----------------------------------------------------------------------------
