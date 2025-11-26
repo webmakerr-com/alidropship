@@ -307,8 +307,8 @@ return [
                 'img'=> $IMG_DIR . 'single/f2.png',
             ],
             [
-                'head'=> __( 'NEED HELP?', 'elgreco' ).' support@'.$cur_website,
-                'text'=> __( 'We\'re always there for you', 'elgreco' ),
+                'head'=> __( 'NEED HELP? +123 456 7890', 'elgreco' ),
+                'text'=> __( 'Call us on a toll-free phone number', 'elgreco' ),
                 'img'=> $IMG_DIR . 'single/f3.png',
             ],
             [

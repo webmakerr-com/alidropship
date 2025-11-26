@@ -60,7 +60,7 @@
             } ?>
         </style>
 
-        <div class="mainowl <?php if(!$tp_home_slider_full){ echo "mainowl_wrap";}?>"
+        <div class="mainowl tt_inited <?php if(!$tp_home_slider_full){ echo "mainowl_wrap";}?>"
              data-auto="<?php echo cz( 'tp_home_slider_rotating' ) ? 'true' : 'false' ?>"
              data-automob="<?php echo cz( 'tp_home_slider_rotating_mob' ) ? 'true' : 'false' ?>"
              data-time="<?php echo cz( 'tp_home_slider_rotating_time' ) ?
