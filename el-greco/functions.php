@@ -136,8 +136,6 @@ function getFullUrlImgJpgWebp_tm( $url ) {
 }
 
 /* Lazy load of images for product's single page */
-$enable_single_page_optimize_content = cz( 'tp_item_imgs_lazy_load' );
-
 // To edit single product's description's content for images lazy loading
 function change_single_product_content_for_img_lazy_load( $content ) {
 
@@ -250,7 +248,10 @@ function change_single_product_content_for_img_lazy_load_srcset( $content ) {
     return $content;
 }
 
-if( $enable_single_page_optimize_content ) {
+add_action( 'init', function() {
+    if ( ! cz( 'tp_item_imgs_lazy_load' ) ) {
+        return;
+    }
 
     // add the filter when main loop starts
     add_action( 'loop_start', function( WP_Query $query ) {
@@ -267,7 +268,7 @@ if( $enable_single_page_optimize_content ) {
             remove_filter( 'the_content', 'change_single_product_content_for_img_lazy_load_srcset' );
         }
     } );
-}
+} );
 
 /* END Lazy load of images for product's single page */
 function theme_get_icon( $name, $color ) {
