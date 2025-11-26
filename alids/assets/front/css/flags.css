@@ -1,0 +1,3 @@
+a[href*="?cur="] b,[ajax_update="currency"] b{margin-right:10px;display:inline-block;}
+a[href*="cur="] b {margin-right: 10px;}
+a[href*="cur="] b img{min-width:22px;min-height:16px;}

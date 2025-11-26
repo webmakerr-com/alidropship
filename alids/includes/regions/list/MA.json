@@ -1,0 +1,13 @@
+[{"state":"Beni Mellal - Khenifra","city":["Azilal", "Beni Mellal", "Fquih Ben Salah", "Khenifra", "Khouribga", "Other"]},
+  {"state":"Dakhla-Oued Ed-Dahab Region","city":["Oued Ed-Dahab","Other"]},
+  {"state":"Draa - Tafilalet","city":["Errachidia", "Midelt", "Tinghir", "Zagora", "Other"]},
+  {"state":"Fes - Meknes","city":["Boulemane", "El Hajeb", "FES", "Ifrane", "Khenifra", "Meknes", "Moulay Yaacoub", "Sefrou", "Taounate", "Taza", "Other"]},
+  {"state":"Grand Casablanca - Settat","city":["Benslimane", "Berrechid", "El Jadida", "Mediouna", "Mohammedia", "Nouaceur", "Settat", "Sidi Bennour", "casablanca", "Other"]},
+  {"state":"Guelmim - Oued Noun","city":["Guelmim","Tan-Tan","Other"]},
+  {"state":"Laayoune-Sakia El Hamra Region","city":["Boujdour","Laayoune","Tarfaya","Other"]},
+  {"state":"Marrakech - Safi","city":["Al Haouz", "Chichaoua", "El Kelaa des Sraghna", "Essaouira", "Marrakech", "Ouarzazate", "Rehamna", "SAFI", "Youssoufia", "Other"]},
+  {"state":"Oriental","city":["Berkane", "Driouch", "Figuig", "Guercif", "Jerada", "Nador", "Taourirt", "oujda", "Other"]},
+  {"state":"Rabat - Sale - Kenitra","city":["Kenitra", "Khemisset", "Rabat", "SALE", "Sidi Kacem", "Sidi Slimane", "Skhirate - Temara", "Other"]},
+  {"state":"Souss - Massa","city":["AGADIR", "Chtouka - Ait Baha", "Inezgane - Ait Melloul", "TIZNIT", "Taroudant", "Tata", "Other"]},
+  {"state":"Tanger - Tetouan - Al Hoceima","city":["Al Hoceima", "Chefchaouen", "Larache", "M Diq - Fnideq", "Ouezzane", "Tanger", "Tanger - Assilah", "Tetouan", "Other"]}
+]

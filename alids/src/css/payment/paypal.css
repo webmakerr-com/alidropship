@@ -1,0 +1,108 @@
+@-webkit-keyframes rotation /* Safari and Chrome */ {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotation {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+#js_cover_paypal{
+    display:none;
+    position: fixed;
+    z-index: 2147483647;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translate3d(0, 0, 0);
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+#js_cover_paypal .paypal-checkout-modal {
+    font-family: "HelveticaNeue", "HelveticaNeue-Light", "Helvetica Neue Light", helvetica, arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    box-sizing: border-box;
+    max-width: 350px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    cursor: pointer;
+}
+#js_cover_paypal .paypal-checkout-modal{
+    margin-bottom: 30px;
+    display: inline-block;
+}
+#js_cover_paypal .paypal-checkout-modal .paypal-checkout-message {
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 10px 0;
+}
+#js_cover_paypal .paypal-spinner {
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    box-sizing: content-box;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    animation: rotation .7s infinite linear;
+    border-left: 8px solid rgba(0, 0, 0, .2);
+    border-right: 8px solid rgba(0, 0, 0, .2);
+    border-bottom: 8px solid rgba(0, 0, 0, .2);
+    border-top: 8px solid #fff;
+    border-radius: 100%;
+}
+.js_paypal-block{
+    position:relative;
+    min-height:80px;
+}
+.js_paypal-block #js_cover_paypal-loader{
+    display: none;
+    position:absolute;
+    z-index:1000;left:0;top:0;right:0;bottom:0;
+    transform: translate3d(0, 0, 0);
+    background-color: #faf8f9;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+#js_cover_paypal-loader .paypal-spinner {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    height: 30px;
+    width: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    display: inline-block;
+    box-sizing: content-box;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    animation: rotation .7s infinite linear;
+    border-left: 8px solid rgba(255, 255, 255, .2);
+    border-right: 8px solid rgba(255, 255, 255, .2);
+    border-bottom: 8px solid rgba(255, 255, 255, .2);
+    border-top: 8px solid #000;
+    border-radius: 100%;
+}

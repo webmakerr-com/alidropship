@@ -1,0 +1,10 @@
+[{"state":"Central","city":["Kandy","Kandy - Outer","Matale","Nuwara Eliya","Other"]},
+  {"state":"Eastern","city":["Ampara","Batticaloa","Trincomalee","Other"]},
+  {"state":"Maldives","city":["Hulhumale Island","Male Island","Other"]},
+  {"state":"North Central","city":["Anuradhapura","Polonnaruwa","Other"]},
+  {"state":"North Western","city":["Kurunegala","Puttalam","Other"]},
+  {"state":"Northern","city":["Jaffna","Kilinochchi","Mannar","Mulativu","Vavuniya","Other"]},
+  {"state":"Sabaragamuwa","city":["Kegalle","Ratnapura","Other"]},
+  {"state":"Southern","city":["Galle","Hambantota","Matara","Other"]},
+  {"state":"Uva","city":["Badulla","Monaragala","Other"]},
+  {"state":"Western","city":["Colombo (1 - 15)","Colombo - Greater","Colombo - Suburbs","Gampaha","Kalutara","Other"]}]
